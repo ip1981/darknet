@@ -8,6 +8,7 @@ PROJECT (darknet)
 INCLUDE (GNUInstallDirs)
 
 OPTION (ENABLE_CUDA "Enable CUDA" ON)
+OPTION (ENABLE_OPENMP "Enable OpenMP" ON)
 
 SET (darknet_sources 
   src/activation_layer.c
@@ -107,6 +108,15 @@ SET (libdarknet_sources
   src/libdarknet.c
   src/libdarknet.h
 )
+
+
+IF (ENABLE_OPENMP)
+  FIND_PACKAGE (OpenMP)
+  IF (OPENMP_FOUND)
+    SET (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+    SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+  ENDIF (OPENMP_FOUND)
+ENDIF (ENABLE_OPENMP)
 
 
 IF (ENABLE_CUDA)
