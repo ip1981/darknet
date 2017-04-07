@@ -30,7 +30,7 @@ typedef struct libdarknet_item
 libdarknet_detector_t libdarknet_new_detector (const char *
                                                /* network config file */ ,
                                                const char *
-                                               /* network wights */ );
+                                               /* network weights */ );
 
 ssize_t libdarknet_detect (libdarknet_detector_t, float /* threshold */ ,
                            float /* tree threshold */ ,
