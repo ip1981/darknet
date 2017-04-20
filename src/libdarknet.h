@@ -12,7 +12,7 @@ typedef struct libdarknet_item
   float x;                      /* Horizontal coordinate of item's center.  */
   float y;                      /* Vertical coordinate of item's center.  */
   float h;                      /* Object's height.  */
-  float w                       /* Object's width.  */
+  float w;                      /* Object's width.  */
 } libdarknet_item;
 
 /*
